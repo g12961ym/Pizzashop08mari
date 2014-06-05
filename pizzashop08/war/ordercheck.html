@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>ピザデータの表示</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="lib3.js"></script>
+        <script type="text/javascript">
+        <!--
+        function callback(request){
+            var json = eval(request.responseText);
+            var res = '';
+            if (json.length == 1){
+                res += '<tr><td>' + json[0].id +'</td></tr>';
+                res += '<tr><td>' + json[0].name +'</td></tr>';
+                res += '<tr><td>' + json[0].order +'</td></tr>';
+                res += '<tr><td>' + json[0].price +'</td></tr>';
+            } else {
+                for (var i = 0;i < json.length;i++){
+                    res += '<tr><td class="name">' + json[i].order + '</td>';
+                    res += '<td class="name">' + json[i].name + '</td>' +
+                    '<td class="count">' + json[i].count + ' 枚</td></tr>';
+                }
+            }
+            var obj = document.getElementById("datatable");
+            obj.innerHTML = res;
+        }
+        //-->
+        </script>
+        <script type="text/javascript">
+        </script>
+  </head>
+  <body onload="getData(null);">
+    <h1>注文状況の確認</h1>
+     
+    <table id="datatable" border="1">
+      <tr>
+        <td>wait...</td>
+      </tr>
+    </table>
+    <br>
+    <div class="center" align="center">
+    <div><a href="staffpage.html">店員用ページ選択画面</a></div>
+    <div><a href="EditPizza.html">メニュー編集画面</a></div><br>
+    <div><a href="index.html">index</a></div>
+    </div>
+  </body>
+</html>

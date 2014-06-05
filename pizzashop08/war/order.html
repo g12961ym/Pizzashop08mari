@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>ピザデータの表示</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="lib2.js"></script>
+        <script type="text/javascript">
+        <!--
+        function callback(request){
+            var json = eval(request.responseText);
+            var res = '';
+            if (json.length == 1){
+                res += '<tr><td>' + json[0].id +'</td></tr>';
+                res += '<tr><td>' + json[0].name +'</td></tr>';
+                res += '<tr><td>' + json[0].price +'</td></tr>';
+            } else {
+                for (var i = 0;i < json.length;i++){
+                    res += '<tr><td class="cbox"> <input type="radio" name="order" value=" ' + json[i].id +' " onclick="checked(' +"'box" + i + "'" + ', this.checked)"> </td>';
+                    res += '<td class="name">' + json[i].name + '</td>' +
+                    '<td class="count">' + json[i].price + ' 円</td></tr>';
+                }
+            }
+            var obj = document.getElementById("datatable");
+            obj.innerHTML = res;
+            
+        }
+        //-->
+        </script>
+        <script type="text/javascript">
+        </script>
+  </head>
+  <body onload="getData(null);">
+    <h1>ラジオボタンでピザを選び枚数と名前を入力する</h1>
+     
+    <form method="post" action="/order" name="frm">
+    <table id="datatable" border="1">
+      <tr>
+        <td>wait...</td>
+      </tr>
+    </table><br><br>
+    <table>
+    <tr>
+    <td>お名前：<input type="text" name="name"></td>
+    <td>枚数：<input type="text" name="count"></td>
+    </tr>
+    </table>
+    <p><input type="submit" value="送信する"></p>
+    </form>
+    <br>
+    <div class="center" align="center">
+    <div><a href="index.html">index</a></div>
+    </div>
+  </body>
+</html>
